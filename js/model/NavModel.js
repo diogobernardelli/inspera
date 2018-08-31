@@ -1,4 +1,3 @@
-
 var _ = require('underscore');
 
 var navBarJSON = [
@@ -20,7 +19,7 @@ var navBarJSON = [
 ];
 
 var getNavBarItems = function () {
-    return navBarJSON;
+    return _.sortBy( navBarJSON, 'title' );;
 };
 
 module.exports = {
