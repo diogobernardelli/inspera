@@ -1,0 +1,14 @@
+nav {
+    box-shadow: $default-shadow-box;
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        z-index: 0;
+        background: linear-gradient(to right, $color-accent 0%,$secondary-accent 32%,$third-accent 65%,$fourth-accent 100%);
+      }
+}

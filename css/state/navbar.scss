@@ -1,0 +1,12 @@
+@media (max-width: 720px) {
+    nav {
+        .nav-item {
+            text-align: center;
+            border-bottom: 1px solid $border-dafault;
+
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
+}
