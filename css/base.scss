@@ -1,8 +1,13 @@
-body {
-    background: #eee;
-}
+/* Base */
+@import "base/normalize";
+@import "base/variables";
+@import "base/globals";
 
-article {
-    background: #fff;
-    padding: 15px;
-}
+/* Module */
+@import "module/navbar";
+
+/* Layout */
+@import "layout/navbar";
+
+/* State */
+@import "state/navbar";
