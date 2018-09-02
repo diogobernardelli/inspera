@@ -22,26 +22,28 @@ var NavBar = React.createClass({displayName: "NavBar",
         navBar: React.PropTypes.array // The JSON array returned from js/model/NavModel.getNavBarItems passed on from main
     },
     getInitialState: () => {
-        return {navCollapsed: "true"};
+        return {navCollapsed: 1};
     },
-    _onToggleNav() {
+    onToggleNav() {
         // this.setState({ navCollapsed: !this.state.navCollapsed });
-        this.setState({ navCollapsed: "false" });
+        this.setState({navCollapsed: 2 });
     },
+    
     render: function() {
         var navBar = this.props.navBar;
-        const items = navBar.map((number,index) =>
-            React.createElement(NavItem, {item: navBar[index], key: index})
-        );
-        const {navCollapsed} = this.state
+        // console.log(navBar);
+        const items = _.map(navBar, (item,index) => (
+            React.createElement(NavItem, {item: item, key: index}) 
+        ));
         return (
             React.createElement("nav", {className: "navbar navbar-expand-lg navbar-light bg-light fixed-top"}, 
-            navCollapsed, 
-                React.createElement("img", {className: "navbar-brand", src: "https://ias.inspera.no/file/cil/mp_logo/file"}), 
-                React.createElement("button", {"aria-expanded": "false", className: "navbar-toggler ml-auto hidden-sm-up float-xs-right", onClick: this._onToggleNav, type: "button"}, 
+            this.state.navCollapsed, 
+                /* <img className="navbar-brand" src="https://ias.inspera.no/file/cil/mp_logo/file"/> */
+                React.createElement("a", {href: "#", onClick: this.onToggleNav}, "aeaseeae"), 
+                React.createElement("button", {"aria-expanded": "false", className: "navbar-toggler ml-auto hidden-sm-up float-xs-right", onClick: this.onToggleNav, type: "button"}, 
                     React.createElement("span", {className: "navbar-toggler-icon"})
                 ), 
-                React.createElement("div", {className: (navCollapsed ? 'collapse' : '') + ' navbar-collapse'}, 
+                React.createElement("div", {className: (this.state.navCollapsed ? 'collapse' : '') + ' navbar-collapse'}, 
                     React.createElement("ul", {className: "navbar-nav mr-auto"}, 
                         items
                     )

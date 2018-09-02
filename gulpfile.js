@@ -4,42 +4,57 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
-    sass = require('gulp-sass');
+    browserify = require('gulp-browserify'),
+    sass = require('gulp-sass'),
+    mocha = require('gulp-mocha');
 
-var compileSass = function(src, dest) {
-    return gulp.src(src)
+var compileSass = (src, dest) =>
+    gulp.src(src)
         .pipe(sass({errLogToConsole: false,onError: function(err) {return notify().write(err);}}))
         .pipe(gulp.dest(dest));
-};
 
-var compileJsx = function(src, dest) {
-    return gulp.src(src)
+var compileJsx = (src, dest) =>
+    gulp.src(src)
         .pipe(plumber({
             errorHandler: notify.onError("Error: <%= error %>")
         }))
         .pipe(react())
         .pipe(gulp.dest(dest));
-};
 
-gulp.task('sass', function() {
-    return compileSass('css/base.scss', 'css');
-});
+gulp.task('sass', () => 
+    compileSass('css/base.scss', 'css')
+)
 
-gulp.task('jsx', function() {
-    return compileJsx('js/views/**/*.jsx', 'js/_jsx/views');
-});
 
-gulp.task('runServer', function() {
+gulp.task('jsx', () => 
+    compileJsx('js/views/**/*.jsx', 'js/_jsx/views')
+)
+
+gulp.task('test', () =>
+	gulp.src(['test/**/*.js'], {read: false})
+		.pipe(mocha({reporter: 'list', exit: true}))
+		.on('error', console.error)
+);
+
+gulp.task('browserify', () =>
+    gulp.src('js/_jsx/views/main.js')
+        .pipe(browserify({
+          insertGlobals : true
+        }))
+        .pipe(gulp.dest('build/'))
+);
+
+gulp.task('runServer', () =>
     nodemon({
         script: 'server.js',
         ext: 'scss jsx js',
         ignore: ['js/_jsx/**/*.js'],
-        tasks: ['sass', 'jsx'] })
+        tasks: ['sass', 'jsx', 'test'] })
     .on('restart', function () {
       console.log('restarted!');
-    });
-});
+    })
+)
 
-gulp.task('default', function(callback) {
-    runSequence(['jsx', 'sass'], 'runServer', callback);
-});
+gulp.task('default', (callback) => 
+    runSequence(['jsx', 'sass', 'browserify', 'test'], 'runServer', callback)
+)

@@ -29,5 +29,5 @@ The server is running at http://localhost:3000/inspera
 
 **✓** Change js/model/NavModel.getNavBarItems so that it sorts the items on title.
 
-4. Find a unit test framework of your liking and add a unit test for the js/model/NavModel.getNavBarItems. Ideally it should run automatically when changing the js/jsx files.
+**✓** Find a unit test framework of your liking and add a unit test for the js/model/NavModel.getNavBarItems. Ideally it should run automatically when changing the js/jsx files.
 
