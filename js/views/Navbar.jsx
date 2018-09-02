@@ -37,9 +37,9 @@ var NavBar = React.createClass({
         ));
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            {this.state.navCollapsed}
-                {/* <img className="navbar-brand" src="https://ias.inspera.no/file/cil/mp_logo/file"/> */}
-                <a href="#" onClick={this.onToggleNav}>aeaseeae</a>
+            {/* {this.state.navCollapsed} */}
+                <img className="navbar-brand" src="https://ias.inspera.no/file/cil/mp_logo/file"/>
+                {/* <a href="#" onClick={this.onToggleNav}>aeaseeae</a> */}
                 <button aria-expanded='false' className='navbar-toggler ml-auto hidden-sm-up float-xs-right' onClick={this.onToggleNav} type='button' >
                     <span className="navbar-toggler-icon"></span>
                 </button>
