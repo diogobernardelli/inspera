@@ -37,9 +37,9 @@ var NavBar = React.createClass({displayName: "NavBar",
         ));
         return (
             React.createElement("nav", {className: "navbar navbar-expand-lg navbar-light bg-light fixed-top"}, 
-            this.state.navCollapsed, 
-                /* <img className="navbar-brand" src="https://ias.inspera.no/file/cil/mp_logo/file"/> */
-                React.createElement("a", {href: "#", onClick: this.onToggleNav}, "aeaseeae"), 
+            /* {this.state.navCollapsed} */
+                React.createElement("img", {className: "navbar-brand", src: "https://ias.inspera.no/file/cil/mp_logo/file"}), 
+                /* <a href="#" onClick={this.onToggleNav}>aeaseeae</a> */
                 React.createElement("button", {"aria-expanded": "false", className: "navbar-toggler ml-auto hidden-sm-up float-xs-right", onClick: this.onToggleNav, type: "button"}, 
                     React.createElement("span", {className: "navbar-toggler-icon"})
                 ), 

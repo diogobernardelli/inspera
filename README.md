@@ -1,3 +1,6 @@
+# Inspera Frontend Test
+![Mockup Image](https://image.ibb.co/cAbh9e/inspera_image.jpg)
+
 ## Install
 First you need to install node.js
 Then type "npm install":
@@ -18,7 +21,7 @@ $ npm test
 ```
 The test run automatically when changing any js/jsx file.
 
-#Inspera Frontend Assignments
+# Inspera Frontend Assignments
 
 ## CSS
 **✓** Style the navbar to use a Boostrap navbar making it responsive and mobile friendly. The logo should be on the left with the nav items following. The menu items should be expandable on mobile. Just use plain boostrap and don't do any attempts to make it really really pretty.
@@ -36,3 +39,17 @@ The test run automatically when changing any js/jsx file.
 
 **✓** Find a unit test framework of your liking and add a unit test for the js/model/NavModel.getNavBarItems. Ideally it should run automatically when changing the js/jsx files.
 
+## New Packages and Stacks:
+
+#### JavaScript
+| Use | Remark |
+| --- | --- |
+| Mocha Unit Test | ✓ |
+| Should | ✓ |
+| Browserify | ✓ |
+
+#### CSS
+| Use | Remark |
+| --- | --- |
+| SMACSS Structure | ✓ |
+| Boostrap | ✓ |
