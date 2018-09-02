@@ -12,6 +12,11 @@ $ gulp
 ```
 The server is running at http://localhost:3000/inspera
 
+## Testing
+```bash
+$ npm test
+```
+The test run automatically when changing any js/jsx file.
 
 #Inspera Frontend Assignments
 
@@ -25,7 +30,7 @@ The server is running at http://localhost:3000/inspera
 ## Javascript
 1. Get the expandable menu on mobile in the navbar working.
 
-**?** Rewrite the for loop in js/view/Navbar.jsx to use return a new array using map to iterate over the navBar array.
+**✓** Rewrite the for loop in js/view/Navbar.jsx to use return a new array using map to iterate over the navBar array.
 
 **✓** Change js/model/NavModel.getNavBarItems so that it sorts the items on title.
 
