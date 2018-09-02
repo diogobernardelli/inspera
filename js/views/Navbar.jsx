@@ -22,26 +22,28 @@ var NavBar = React.createClass({
         navBar: React.PropTypes.array // The JSON array returned from js/model/NavModel.getNavBarItems passed on from main
     },
     getInitialState: () => {
-        return {navCollapsed: "true"};
+        return {navCollapsed: 1};
     },
-    _onToggleNav() {
+    onToggleNav() {
         // this.setState({ navCollapsed: !this.state.navCollapsed });
-        this.setState({ navCollapsed: "false" });
+        this.setState({navCollapsed: 2 });
     },
+    
     render: function() {
         var navBar = this.props.navBar;
-        const items = navBar.map((number,index) =>
-            <NavItem item={navBar[index]} key={index}/>
-        );
-        const {navCollapsed} = this.state
+        // console.log(navBar);
+        const items = _.map(navBar, (item,index) => (
+            <NavItem item={item} key={index}/> 
+        ));
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            {navCollapsed}
-                <img className="navbar-brand" src="https://ias.inspera.no/file/cil/mp_logo/file"/>
-                <button aria-expanded='false' className='navbar-toggler ml-auto hidden-sm-up float-xs-right' onClick={this._onToggleNav} type='button' >
+            {this.state.navCollapsed}
+                {/* <img className="navbar-brand" src="https://ias.inspera.no/file/cil/mp_logo/file"/> */}
+                <a href="#" onClick={this.onToggleNav}>aeaseeae</a>
+                <button aria-expanded='false' className='navbar-toggler ml-auto hidden-sm-up float-xs-right' onClick={this.onToggleNav} type='button' >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className={(navCollapsed ? 'collapse' : '') + ' navbar-collapse'}>
+                <div className={(this.state.navCollapsed ? 'collapse' : '') + ' navbar-collapse'}>
                     <ul className="navbar-nav mr-auto">
                         {items}
                     </ul>

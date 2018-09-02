@@ -20,7 +20,7 @@ module.exports = React.createClass({displayName: "exports",
 
                 React.createElement("h2", null, "In viverra augue id elit tempor euismod."), 
                 React.createElement("p", null, "Maecenas euismod nisi sit amet blandit tincidunt. Donec ut lacinia sem, vitae finibus nibh. Aliquam molestie urna mauris, ac gravida enim molestie ut. Proin vel neque ut erat auctor mattis at sit amet leo. Donec aliquet at velit sed fringilla. Nunc porttitor mollis ante, blandit malesuada ipsum laoreet et. Phasellus viverra sagittis porttitor. Sed a tristique sapien. Maecenas eu lectus nisl.")
-
+                
             )
         );
     }

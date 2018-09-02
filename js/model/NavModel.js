@@ -19,7 +19,7 @@ var navBarJSON = [
 ];
 
 var getNavBarItems = function () {
-    return _.sortBy( navBarJSON, 'title' );;
+    return _.sortBy( navBarJSON, 'title' );
 };
 
 module.exports = {
