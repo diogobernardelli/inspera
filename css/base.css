@@ -375,7 +375,7 @@ article {
   background: white; }
 
 /* State */
-@media (max-width: 720px) {
+@media (max-width: 990px) {
   nav .nav-item {
     text-align: center;
     border-bottom: 1px solid rgba(204, 204, 204, 0.6); }
