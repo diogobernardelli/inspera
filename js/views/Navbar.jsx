@@ -19,33 +19,32 @@ var NavItem = React.createClass({
 
 var NavBar = React.createClass({
     propTypes: {
-        navBar: React.PropTypes.array // The JSON array returned from js/model/NavModel.getNavBarItems passed on from main
+        navBar: React.PropTypes.array, // The JSON array returned from js/model/NavModel.getNavBarItems passed on from main
+        initialState: React.PropTypes.number
     },
-    getInitialState: () => {
-        return {navCollapsed: 1};
+    getInitialState: function() {
+        return {
+            navCollapsed: this.props.initialState
+        };
     },
-    onToggleNav() {
-        // this.setState({ navCollapsed: !this.state.navCollapsed });
-        this.setState({navCollapsed: 2 });
+    _onToggleNav() {
+        this.setState({ navCollapsed: !this.state.navCollapsed });
     },
     
     render: function() {
         var navBar = this.props.navBar;
-        // console.log(navBar);
         const items = _.map(navBar, (item,index) => (
             <NavItem item={item} key={index}/> 
         ));
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            {/* {this.state.navCollapsed} */}
                 <img className="navbar-brand" src="https://ias.inspera.no/file/cil/mp_logo/file"/>
-                {/* <a href="#" onClick={this.onToggleNav}>aeaseeae</a> */}
-                <button aria-expanded='false' className='navbar-toggler ml-auto hidden-sm-up float-xs-right' onClick={this.onToggleNav} type='button' >
+                <button aria-expanded='false' className='navbar-toggler ml-auto hidden-sm-up float-xs-right' onClick={ this._onToggleNav } type='button' >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className={(this.state.navCollapsed ? 'collapse' : '') + ' navbar-collapse'}>
+                <div className={ (this.state.navCollapsed ? 'collapse' : '' ) + ' navbar-collapse'}>
                     <ul className="navbar-nav mr-auto">
-                        {items}
+                        { items }
                     </ul>
                 </div>
             </nav>

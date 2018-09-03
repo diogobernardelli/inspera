@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
-    browserify = require('gulp-browserify'),
     sass = require('gulp-sass'),
     mocha = require('gulp-mocha');
 
@@ -36,14 +35,6 @@ gulp.task('test', () =>
 		.on('error', console.error)
 );
 
-gulp.task('browserify', () =>
-    gulp.src('js/_jsx/views/main.js')
-        .pipe(browserify({
-          insertGlobals : true
-        }))
-        .pipe(gulp.dest('build/'))
-);
-
 gulp.task('runServer', () =>
     nodemon({
         script: 'server.js',
@@ -56,5 +47,5 @@ gulp.task('runServer', () =>
 )
 
 gulp.task('default', (callback) => 
-    runSequence(['jsx', 'sass', 'browserify', 'test'], 'runServer', callback)
+    runSequence(['jsx', 'sass', 'test'], 'runServer', callback)
 )

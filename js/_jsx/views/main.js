@@ -13,18 +13,17 @@ module.exports = React.createClass({displayName: "exports",
                 React.createElement("head", null, 
                     React.createElement("meta", {charSet: "utf-8"}), 
                     React.createElement("link", {rel: "stylesheet", href: "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"}), 
-                    React.createElement("link", {rel: "stylesheet", href: "/base.css"}), 
+                    React.createElement("link", {rel: "stylesheet", href: "/css/base.css"}), 
                     React.createElement("meta", {name: "author", content: "Diogo"}), 
                     React.createElement("title", null, "Inspera Front-End Test"), 
                     React.createElement("meta", {name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=5"}), 
                     React.createElement("link", {rel: "shortcut icon", href: "https://www.inspera.com/hubfs/Images/favicon16x16.png?t=1535725809466"})
                 ), 
                 React.createElement("body", null, 
-                    React.createElement(NavBar, {navBar: this.props.navBar}), 
+                    React.createElement(NavBar, {navBar: this.props.navBar, initialState: this.props.initialState}), 
                     React.createElement(MainContent, null)
                 ), 
-                /* <script src="https://unpkg.com/react@0.14.8/dist/react.min.js"/> */
-                React.createElement("script", {src: "/build/main.js"})
+                React.createElement("script", {src: "/bundles/main.js"})
             )
         );
     }
